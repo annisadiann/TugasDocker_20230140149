@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body style="background:#f0f0f0; margin:0; padding:0;">
+<table width="100%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="padding:20px;">
+
+            <b>MY Website 20230140149</b><br>
+            Selamat datang di aplikasi!<br>
+            <a th:href="@{/form}" style="color:#1a73e8;">+ Input Data Mahasiswa</a>
+
+            <br><br>
+            <b>Data Mahasiswa</b><br>
+
+            <table width="100%" cellpadding="8" cellspacing="0" border="1" style="border-collapse:collapse; border-color:#ccc;">
+                <tr style="background:#1a73e8; color:white;">
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>NIM</th>
+                    <th>Jenis Kelamin</th>
+                </tr>
+                <tr th:if="${#lists.isEmpty(users)}">
+                    <td colspan="4" style="text-align:center;">Belum ada data</td>
+                </tr>
+                <tr th:each="user, stat : ${users}">
+                    <td style="text-align:center;" th:text="${stat.index + 1}"></td>
+                    <td style="text-align:center;" th:text="${user.nama}"></td>
+                    <td style="text-align:center;" th:text="${user.nim}"></td>
+                    <td style="text-align:center;" th:text="${user.jenisKelamin}"></td>
+                </tr>
+            </table>
+
+            <br>
+            <a th:href="@{/logout}" style="color:#1a73e8;">Logout</a>
+
+        </td>
+    </tr>
+</table>
+</body>
+</html>
