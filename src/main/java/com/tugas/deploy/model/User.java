@@ -1,14 +1,23 @@
 package com.tugas.deploy.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
+@Builder
+@Table(name = "20230140149_users")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+    @Id
+    private String id;
     private String nama;
     private String nim;
-    private String jenisKelamin;
+    private String jenis_kelamin;
 }
